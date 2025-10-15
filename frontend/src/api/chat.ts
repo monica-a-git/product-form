@@ -28,7 +28,7 @@ export const generateQuestion = async (
 
 export const getProductReport = async (productId: string) => {
     try {
-        const response = await axios.get(`${API_BASE_URL}/products/${productId}`);
+        const response = await axios.get(`${API_BASE_URL}/api/products/${productId}`);
         return response.data;
     } catch (error) {
         if (axios.isAxiosError(error) && error.response) {
@@ -40,7 +40,7 @@ export const getProductReport = async (productId: string) => {
 
 export const listAllProducts = async () => {
     try {
-        const response = await axios.get(`${API_BASE_URL}/products`);
+        const response = await axios.get(`${API_BASE_URL}/api/products`);
         return response.data;
     } catch (error) {
         if (axios.isAxiosError(error) && error.response) {
