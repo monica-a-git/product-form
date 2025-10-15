@@ -1,0 +1,28 @@
+.message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #e2e6ea;
+    color: #333;
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+/* Loading message */
+.loading-message {
+    background-color: #f0f0f0;
+    color: #666;
+    font-style: italic;
+}

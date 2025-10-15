@@ -1,0 +1,144 @@
+.chatbot-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    height: 80vh; /* Adjust height as needed */
+}
+
+.product-list-panel {
+    flex: 0 0 300px; /* Fixed width for the list panel */
+    border-right: 1px solid #eee;
+    padding: 20px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+.product-list-panel h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.product-list-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-list-panel li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+/* ... (previous CSS from last turn) ... */
+
+.product-list-panel li button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;    /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    max-width: 150px; /* Limit button width */
+}
+
+.product-list-panel li button:hover {
+    background-color: #0056b3;
+}
+
+.product-list-panel li button.report-btn {
+    background-color: #28a745;
+}
+
+.product-list-panel li button.report-btn:hover {
+    background-color: #218838;
+}
+
+.chat-panel {
+    flex: 1; /* Takes remaining space */
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.chatbot-header {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.chatbot-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.current-product-id {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.chatbot-messages {
+    flex-grow: 1; /* Allows messages to take up available space */
+    padding: 20px;
+    overflow-y: auto; /* Enable scrolling for messages */
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+}
+
+.chatbot-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+.chatbot-input button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.chatbot-input button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.chatbot-input button:disabled {
+    background-color: #a0c7ed;
+    cursor: not-allowed;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+}
