@@ -9,7 +9,7 @@ export const generateQuestion = async (
     sessionId: string = 'default_session_id' // A simple session ID for now
 ): Promise<ChatResponse> => {
     try {
-        const response = await axios.post<ChatResponse>(`${API_BASE_URL}/generate-question`, {
+        const response = await axios.post<ChatResponse>(`${API_BASE_URL}/api/generate-question`, {
             userInput,
             productId,
         }, {

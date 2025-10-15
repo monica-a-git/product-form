@@ -75,7 +75,7 @@ const Chatbot: React.FC = () => {
         setError(null);
         try {
             // When calling getProductReport, expect a PDF blob, not JSON
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`);
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products/${productId}`);
 
             if (!response.ok) {
                 const errorText = await response.text(); // Get raw error text
