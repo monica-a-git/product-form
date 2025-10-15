@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import Product, { IProduct } from '../models/Product';
 import { generateQuestionWithContext } from '../services/geminiService';
+import PDFDocument from 'pdfkit';
 
 // Store conversation histories temporarily (in-memory, for production use a persistent store like Redis)
 interface ConversationSession {
@@ -129,9 +130,39 @@ export const getProductReport = async (req: Request, res: Response) => {
             return res.status(404).json({ error: 'Product not found' });
         }
 
-        res.json(product);
+        // Create a PDF document
+        const doc = new PDFDocument();
+        const buffers: Buffer[] = [];
+
+        // Collect PDF data into buffers
+        doc.on('data', buffers.push.bind(buffers));
+        doc.on('end', () => {
+            const pdfData = Buffer.concat(buffers);
+            res.setHeader('Content-Type', 'application/pdf');
+            res.setHeader('Content-Disposition', `attachment; filename="ProductReport-${productId}.pdf"`);
+            res.send(pdfData);
+        });
+
+        // Add content to PDF
+        doc.fontSize(20).text('Product Report', { align: 'center' });
+        doc.moveDown();
+        doc.fontSize(14).text(`Product ID: ${productId}`);
+        doc.text(`Initial Description: ${product.initialDescription}`);
+        doc.moveDown();
+
+        if (product.details && product.details.length > 0) {
+            doc.fontSize(16).text('Details:');
+            product.details.forEach((detail, index) => {
+                doc.moveDown();
+                doc.fontSize(12).text(`Q${index + 1}: ${detail.question}`);
+                doc.text(`A${index + 1}: ${detail.answer}`);
+                doc.text(`Transparency Score: ${detail.transparencyScore}`);
+            });
+        }
+
+        doc.end();
     } catch (error: any) {
-        console.error('Error fetching product report:', error);
+        console.error('Error generating PDF report:', error);
         res.status(500).json({ error: error.message || 'An internal server error occurred' });
     }
 };
