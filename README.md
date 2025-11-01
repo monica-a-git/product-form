@@ -1,6 +1,8 @@
 
 # Product Form Bot
 
+Deplyoed Web-link : https://product-form-1-h30g.onrender.com
+
 ## 📝 Project Overview
 
 The Product Form Bot is an intelligent chatbot designed to streamline the process of gathering comprehensive product information. Users describe their product in natural language, and the bot, powered by the Gemini AI model, asks clarifying questions to populate a detailed product form. 
