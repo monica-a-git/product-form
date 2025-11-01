@@ -1,7 +1,7 @@
 
 # Product Form Bot
 
-Deplyoed Web-link : https://product-form-1-h30g.onrender.com
+Deployed Web-link : https://product-form-1-h30g.onrender.com
 
 ## 📝 Project Overview
 
